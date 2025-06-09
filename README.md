@@ -6,3 +6,4 @@ Coronel Walter Eduardo, usuario: waltopo
 Salas Jesica Abigail Solange, usuario: J3si
 Ortiz Lucas Maximiliano, usuario: lucasortiz512 
 Mamani Erick Rolando, usuario: MamaniErick
+Soto Guillermo Javier, usuario: Javiersot0
