@@ -2,7 +2,7 @@ import ProductCard from "../components/ProductCard";
 import {useEffect} from "react";
 import {fetchProducts} from "../redux/productSlice.js";
 import {Box, Grid, Typography} from "@mui/material";
-const Home = ({ productos }) => {
+const Home = () => {
   const dispatch = useDispatch();
   const  products  = useSelector((state) => state.products.list);
   useEffect(() => {
