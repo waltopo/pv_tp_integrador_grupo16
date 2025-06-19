@@ -4,6 +4,7 @@ import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound.jsx';
 import Favorites from './pages/Favorites.jsx';
+import ProductDetail from './pages/ProductDetail.jsx';
 
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/favoritos" element={<Favorites/>} />
-        <Route path="/producto/:id" element={<></>} />
+        <Route path="/producto/:id" element={<ProductDetail/>} />
         <Route path="/crear" element={<></>} />
         <Route path="/editar/:id" element={<></>} />
         <Route path="*" element={<NotFound/>} />
