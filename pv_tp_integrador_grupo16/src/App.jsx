@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound.jsx';
+import Favorites from './pages/Favorites.jsx';
 
 
 function App() {
@@ -10,8 +11,8 @@ function App() {
     <BrowserRouter>
       <Navbar/>
       <Routes>
-        <Route path="/" element={<></>} />
-        <Route path="/favoritos" element={<></>} />
+        <Route path="/" element={<Home/>} />
+        <Route path="/favoritos" element={<Favorites/>} />
         <Route path="/producto/:id" element={<></>} />
         <Route path="/crear" element={<></>} />
         <Route path="/editar/:id" element={<></>} />

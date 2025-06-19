@@ -6,6 +6,12 @@ const Navbar = () => {
     <AppBar position='static'>
       <Toolbar>
         <Button color='inherit' component={Link} to="/">INICIO</Button>
+        <Button color="inherit" component={Link} to="/favoritos">
+          Favoritos
+        </Button>
+        <Button color="inherit" component={Link} to="/crear">
+          Crear Producto
+        </Button>
       </Toolbar>
     </AppBar>
   );
