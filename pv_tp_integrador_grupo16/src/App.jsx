@@ -17,7 +17,7 @@ function App() {
         <Route path="/favoritos" element={<Favorites/>} />
         <Route path="/producto/:id" element={<ProductDetail/>} />
         <Route path="/crear" element={<ProductForm/>} />
-        <Route path="/editar/:id" element={<ProductForm/>} />
+        <Route path="/producto/editar/:id" element={<ProductForm/>} />
         <Route path="*" element={<NotFound/>} />
       </Routes>
     </BrowserRouter>
