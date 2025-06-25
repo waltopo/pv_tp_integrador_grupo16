@@ -1,28 +1,28 @@
-import {Card, CardMedia, CardContent, Typography, IconButton, CardActions, Menu, MenuItem} from '@mui/material';
-import StarIcon from '@mui/icons-material/Star';
-import StarBorderIcon from '@mui/icons-material/StarBorder';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleFavorite } from '../redux/productSlice';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useState} from 'react';
+import {Card, CardMedia, CardContent, Typography, IconButton, CardActions, Menu, MenuItem} from '@mui/material'; // aquí implementamos  de Material UI
+import StarIcon from '@mui/icons-material/Star'; // Icono de estrella llena (favorito)
+import StarBorderIcon from '@mui/icons-material/StarBorder';// Icono de estrella vacía (no favorito)
+import { Link } from 'react-router-dom';// Para crear enlaces entre páginas
+import { useDispatch, useSelector } from 'react-redux';// estos serian los Hooks de Redux para acceder y modificar el estado
+import { toggleFavorite } from '../redux/productSlice';// Acción para alternar si un producto es favorito o no
+import MoreVertIcon from '@mui/icons-material/MoreVert';// Icono de más opciones (menú desplegable)
+import { useState} from 'react'; // Hook de estado para manejar el menú desplegable de opciones
 
 const ProductCard = ({product}) => {
-  const dispatch = useDispatch();
-  const favorites = useSelector(state => state.products.favorites.includes(product.id));
-  const [anchorEl, setAnchorEl] = useState(null);
-  const open = Boolean(anchorEl);
+  const dispatch = useDispatch(); // Hook para poder enviar acciones a Redux
+  const favorites = useSelector(state => state.products.favorites.includes(product.id));// aquí lo que nos encargamos Verifica si el producto actual está en la lista de favoritos
+  const [anchorEl, setAnchorEl] = useState(null);//variable de estado para manejar el menú desplegable de opciones
+  const open = Boolean(anchorEl);// verifica si el menú está abierto o cerrado
 
-  const handleMenuClick = (event) =>{
+  const handleMenuClick = (event) =>{// Función para manejar el clic en el botón de opciones
     setAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = ()=>{
+  const handleMenuClose = ()=>{// Función para cerrar el menú
     setAnchorEl(null);
   };
 
    return (
-    <Card sx={{ maxWidth: 250, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+    <Card sx={{ maxWidth: 250, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>// Aquí lo que hacemos es crear una tarjeta con un ancho máximo de 250px y una altura del 100% del contenedor
       <CardMedia
         component="img"
         height="140"
@@ -30,19 +30,19 @@ const ProductCard = ({product}) => {
         alt={product.title}
         sx={{ objectFit: 'contain', padding: 2 }}
       />
-      <CardContent>
-        <Typography variant="h6" component="div" noWrap>
+      <CardContent>// Aquí lo que hacemos es crear el contenido de la tarjeta
+        <Typography variant="h6" component="div" noWrap>// Aquí lo que hacemos es crear el título de la tarjeta
           {product.title}
         </Typography>
-        <Typography variant="body1" color="text.secondary">
+        <Typography variant="body1" color="text.secondary">// Aquí lo que hacemos es crear la descripción de la tarjeta
           ${product.price}
         </Typography>
       </CardContent>
-      <CardActions sx={{ justifyContent: 'space-between' }}>
-        <IconButton onClick={() => dispatch(toggleFavorite(product.id))} aria-label="toggle favorite">
+      <CardActions sx={{ justifyContent: 'space-between' }}>// Aquí lo que hacemos es crear las acciones de la tarjeta
+        <IconButton onClick={() => dispatch(toggleFavorite(product.id))} aria-label="toggle favorite">// Aquí lo que hacemos es manejar el evento de clic en el botón de favorito
           {favorites ? <StarIcon color="warning" /> : <StarBorderIcon />}
         </IconButton>
-        <IconButton onClick={handleMenuClick}>
+        <IconButton onClick={handleMenuClick}>// Aquí lo que hacemos es manejar el evento de clic en el botón de opciones
             <MoreVertIcon />
          </IconButton>
           <Menu
@@ -63,10 +63,10 @@ const ProductCard = ({product}) => {
               onClick={handleMenuClose}
             >
               Editar
-            </MenuItem>
+            </MenuItem>// Aquí lo que hacemos es crear el menú desplegable de opciones
           </Menu>
-      </CardActions>
-    </Card>
+      </CardActions>// Aquí lo que hacemos es cerrar la tarjeta
+    </Card>// Aquí lo que hacemos es cerrar la tarjeta
   );
 };
 
