@@ -37,10 +37,20 @@ const productsSlice = createSlice({
       state.list = state.list.filter(p => p.id !== action.payload);
     },
   },
-  extraReducers(builder) {
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.list = action.payload;
-    });
+  extraReducers: builder => {
+    builder
+        .addCase(fetchProducts.pending, state => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(fetchProducts.fulfilled, (state, action) => {
+          state.loading = false;
+          state.list = action.payload;
+        })
+        .addCase(fetchProducts.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.error.message || 'Error al cargar productos';
+        });
   },
 });
 
