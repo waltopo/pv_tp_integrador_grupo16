@@ -22,7 +22,7 @@ const ProductCard = ({product}) => {
   };
 
    return (
-    <Card sx={{ maxWidth: 250, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>// Aquí lo que hacemos es crear una tarjeta con un ancho máximo de 250px y una altura del 100% del contenedor
+    <Card sx={{ maxWidth: 250, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
       <CardMedia
         component="img"
         height="140"
@@ -30,19 +30,19 @@ const ProductCard = ({product}) => {
         alt={product.title}
         sx={{ objectFit: 'contain', padding: 2 }}
       />
-      <CardContent>// Aquí lo que hacemos es crear el contenido de la tarjeta
-        <Typography variant="h6" component="div" noWrap>// Aquí lo que hacemos es crear el título de la tarjeta
+      <CardContent>
+        <Typography variant="h6" component="div" noWrap>
           {product.title}
         </Typography>
-        <Typography variant="body1" color="text.secondary">// Aquí lo que hacemos es crear la descripción de la tarjeta
+        <Typography variant="body1" color="text.secondary">
           ${product.price}
         </Typography>
       </CardContent>
-      <CardActions sx={{ justifyContent: 'space-between' }}>// Aquí lo que hacemos es crear las acciones de la tarjeta
-        <IconButton onClick={() => dispatch(toggleFavorite(product.id))} aria-label="toggle favorite">// Aquí lo que hacemos es manejar el evento de clic en el botón de favorito
+      <CardActions sx={{ justifyContent: 'space-between' }}>
+        <IconButton onClick={() => dispatch(toggleFavorite(product.id))} aria-label="toggle favorite">
           {favorites ? <StarIcon color="warning" /> : <StarBorderIcon />}
         </IconButton>
-        <IconButton onClick={handleMenuClick}>// Aquí lo que hacemos es manejar el evento de clic en el botón de opciones
+        <IconButton onClick={handleMenuClick}>
             <MoreVertIcon />
          </IconButton>
           <Menu
@@ -63,10 +63,10 @@ const ProductCard = ({product}) => {
               onClick={handleMenuClose}
             >
               Editar
-            </MenuItem>// Aquí lo que hacemos es crear el menú desplegable de opciones
+            </MenuItem>
           </Menu>
-      </CardActions>// Aquí lo que hacemos es cerrar la tarjeta
-    </Card>// Aquí lo que hacemos es cerrar la tarjeta
+      </CardActions>
+    </Card>
   );
 };
 
