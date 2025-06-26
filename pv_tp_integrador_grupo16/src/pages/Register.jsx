@@ -11,25 +11,25 @@ const Register = () => {
     confirmPassword: '',
     name: ''
   });
-const [error, setError] = useState('');
-const [success, setSuccess] = useState('');
+  const [error, setError] = useState('');
+  const [success, setSuccess] = useState('');
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
     setError('');
     setSuccess('');
   };
 
-const validateEmail = email => /\S+@\S+\.\S+/.test(email);
+  const validateEmail = email => /\S+@\S+\.\S+/.test(email);
 
-const handleSubmit = (e) => {e.preventDefault();
+  const handleSubmit = (e) => {e.preventDefault();
 
     if (!validateEmail(form.email)) {
       setError('Correo inválido');
       return;
     }
-if (form.password.length < 6) {
+    if (form.password.length < 6) {
       setError('La contraseña debe tener al menos 6 caracteres');
       return;
     }
@@ -64,7 +64,7 @@ if (form.password.length < 6) {
           name="name"
           value={form.name}
           onChange={handleChange}
-margin="normal"
+          margin="normal"
         />
         <TextField
           fullWidth
@@ -76,7 +76,7 @@ margin="normal"
           required
           type="email"
         />
-<TextField
+        <TextField
           fullWidth
           label="Contraseña"
           name="password"
@@ -86,9 +86,7 @@ margin="normal"
           required
           type="password"
         />
-
-
-<TextField
+        <TextField
           fullWidth
           label="Confirmar contraseña"
           name="confirmPassword"
@@ -98,8 +96,7 @@ margin="normal"
           required
           type="password"
         />
-
-<Button variant="contained" type="submit" sx={{ mt: 2 }} fullWidth>Registrarse</Button>
+      <Button variant="contained" type="submit" sx={{ mt: 2 }} fullWidth>Registrarse</Button>
       </form>
     </Box>
   );

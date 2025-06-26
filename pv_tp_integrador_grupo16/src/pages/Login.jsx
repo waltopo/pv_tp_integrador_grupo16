@@ -11,16 +11,16 @@ const Login = () => {
   const [form, setForm] = useState({ email: '', password: '' });
   const [error, setLocalError] = useState('');
 
-const handleChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
     setLocalError('');
     dispatch(clearError());
   };
 
-const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-const users = JSON.parse(localStorage.getItem('users')) || [];
+    const users = JSON.parse(localStorage.getItem('users')) || [];
     const user = users.find(u => u.email === form.email && u.password === form.password);
 
     if (!user) {
@@ -28,7 +28,7 @@ const users = JSON.parse(localStorage.getItem('users')) || [];
       return;
     }
 
-dispatch(login({ email: user.email, name: user.name }));
+    dispatch(login({ email: user.email, name: user.name }));
     navigate('/');
   };
 
@@ -37,8 +37,7 @@ dispatch(login({ email: user.email, name: user.name }));
       <Typography variant="h5" mb={2}>Inicio de sesión</Typography>
       {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
       <form onSubmit={handleSubmit} noValidate>
-
-<TextField
+        <TextField
           fullWidth
           label="Correo electrónico"
           name="email"
@@ -58,8 +57,7 @@ dispatch(login({ email: user.email, name: user.name }));
           required
           type="password"
         />
-
-<Button variant="contained" type="submit" sx={{ mt: 2 }} fullWidth>Ingresar</Button>
+        <Button variant="contained" type="submit" sx={{ mt: 2 }} fullWidth>Ingresar</Button>
       </form>
     </Box>
   );
