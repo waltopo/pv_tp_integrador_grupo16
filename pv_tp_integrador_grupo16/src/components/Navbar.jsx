@@ -84,4 +84,4 @@ const Navbar = () => {
     </AppBar>
   );
 };
-export default NavbarU;// Exportamos el componente para poder usarlo en otros archivos
+export default Navbar;// Exportamos el componente para poder usarlo en otros archivos

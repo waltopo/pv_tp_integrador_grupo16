@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './components/PrivateRoute';
 import Navbar from './components/Navbar.jsx';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound.jsx';
