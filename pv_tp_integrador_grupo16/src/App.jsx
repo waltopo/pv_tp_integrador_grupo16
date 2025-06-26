@@ -6,7 +6,8 @@ import NotFound from './pages/NotFound.jsx';
 import Favorites from './pages/Favorites.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
 import ProductForm from './pages/ProductForm.jsx';
-
+import Register from './pages/Register.jsx';
+import Login from './pages/Login.jsx';
 
 function App() {
   return (
@@ -14,8 +15,8 @@ function App() {
       <Navbar/>
       <Routes>
         {/* Ruta publicas */}
-        <Route path="/login"  element={<></>} />
-        <Route path="/register" element={<></>} />
+        <Route path="/login"  element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
         {/* Rutas privadas */}
         <Route path="/" element={<PrivateRoute><Home/></PrivateRoute>} />
         <Route path="/favoritos" element={<PrivateRoute><Favorites/></PrivateRoute>} />
